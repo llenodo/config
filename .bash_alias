@@ -1,3 +1,6 @@
+alias ll='ls -al'
+alias otext='open -a TextEdit'
+
 alias g='git'
 alias gco='g checkout'
 alias gpo='g push origin'

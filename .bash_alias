@@ -17,6 +17,9 @@ alias gss='g stash save'
 alias gsa='g stash apply'
 alias gsd='g stash drop'
 alias glg='g log --graph --decorate --oneline'
+alias gst='git status'
+alias grm='git rm $(git ls-files --deleted)'
+alias runtest='bundle exec rspec'
 alias wrap='gcomgpumgpom && cbr'
 
 function cbr {

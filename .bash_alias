@@ -22,6 +22,10 @@ alias grm='git rm $(git ls-files --deleted)'
 alias runtest='bundle exec rspec'
 alias wrap='gcomgpumgpom && cbr'
 
+function c {
+  cd ~/Sites/$1
+}
+
 function cbr {
   git push origin :$1 && git branch -D $1
 }

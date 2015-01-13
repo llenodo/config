@@ -21,7 +21,7 @@ alias runtest='bundle exec rspec'
 alias pushall='git add . && git commit && gpo'
 
 function rbm {
-  gcom && gpum && gco $1 && git rebase master
+  git stash && gcom && gpum && gco $1 && git rebase master && git stash pop
 }
 
 function wrap {

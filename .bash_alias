@@ -6,10 +6,8 @@ alias gco='g checkout'
 alias gpo='g push origin'
 alias gpd='g push dev'
 alias gb='g branch'
-alias gcomgpum='gco master && git pull upstream master'
-alias gcomgpumgpom='gco master && git pull upstream master && g push origin master'
 alias gcom='gco master'
-alias gpum='git pull upstream master'
+alias gpum='git pull origin master'
 alias gpom='g push origin master'
 alias gap='git add --patch'
 alias gsl='g stash list'
@@ -20,7 +18,15 @@ alias glg='g log --graph --decorate --oneline'
 alias gst='git status'
 alias grm='git rm $(git ls-files --deleted)'
 alias runtest='bundle exec rspec'
-alias wrap='gcomgpumgpom && cbr'
+alias pushall='git add . && git commit && gpo'
+
+function rbm {
+  gcom && gpum && gco $1 && git rebase master
+}
+
+function wrap {
+  gcom && gpum && git fetch -p && git branch -D $1 && glg
+}
 
 function c {
   cd ~/Sites/$1

@@ -24,7 +24,7 @@ function rbm {
   git stash && gcom && gpum && gco $1 && git rebase master && git stash pop
 }
 
-function wrap {
+function clear {
   gcom && gpum && git fetch -p && git branch -D $1 && glg
 }
 

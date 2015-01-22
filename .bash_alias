@@ -24,14 +24,10 @@ function rbm {
   git stash && gcom && gpum && gco $1 && git rebase master && git stash pop
 }
 
-function clear {
+function clrb {
   gcom && gpum && git fetch -p && git branch -D $1 && glg
 }
 
 function c {
   cd ~/Sites/$1
-}
-
-function cbr {
-  git push origin :$1 && git branch -D $1
 }

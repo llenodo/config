@@ -7,8 +7,7 @@ alias gpo='g push origin'
 alias gpd='g push dev'
 alias gb='g branch'
 alias gcom='gco master'
-alias gpum='git pull origin master'
-alias gpom='g push origin master'
+alias gpom='g pull origin master'
 alias gap='git add --patch'
 alias gsl='g stash list'
 alias gss='g stash save'
@@ -19,13 +18,14 @@ alias gst='git status'
 alias grm='git rm $(git ls-files --deleted)'
 alias runtest='bundle exec rspec'
 alias pushall='git add . && git commit && gpo'
+alias rakes='rake -T | grep'
 
 function rbm {
-  git stash && gcom && gpum && gco $1 && git rebase master && git stash pop
+  git stash && gcom && gpom && gco $1 && git rebase master && git stash pop
 }
 
 function clrb {
-  gcom && gpum && git fetch -p && git branch -D $1 && glg
+  gcom && gpom && git fetch -p && git branch -D $1 && glg
 }
 
 function c {

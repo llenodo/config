@@ -17,7 +17,7 @@ alias glg='g log --graph --decorate --oneline'
 alias gst='git status'
 alias grm='git rm $(git ls-files --deleted)'
 alias runtest='bundle exec rspec'
-alias pushall='git add . && git commit && gpo'
+alias pushall='git add -u && git commit && gpo'
 alias rakes='rake -T | grep'
 
 function rbm {

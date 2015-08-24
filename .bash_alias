@@ -14,11 +14,12 @@ alias gss='g stash save'
 alias gsa='g stash apply'
 alias gsd='g stash drop'
 alias glg='g log --graph --decorate --oneline'
-alias gst='git status'
+alias gst='git status -s'
 alias grm='git rm $(git ls-files --deleted)'
 alias runtest='bundle exec rspec'
-alias pushall='git add -u && git commit && gpo'
+alias pushall='git add . && git add -u && git commit && gpo'
 alias rakes='rake -T | grep'
+alias squash='git add . && git commit -m "." && git rebase -i HEAD~3 && git rebase master && gpo -f'
 
 function rbm {
   git stash && gcom && gpom && gco $1 && git rebase master && git stash pop

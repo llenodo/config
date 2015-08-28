@@ -22,7 +22,7 @@ alias rakes='rake -T | grep'
 alias squash='git add . && git commit -m "." && git rebase -i HEAD~3 && git rebase master && gpo -f'
 
 function rbm {
-  git stash && gcom && gpom && gco $1 && git rebase master && git stash pop
+  gcom && gpom && gco $1 && git rebase master
 }
 
 function clrb {

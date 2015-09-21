@@ -20,7 +20,7 @@ alias runtest='bundle exec rspec'
 alias pushall='git add . && git add -u && git commit && gpo'
 alias rakes='rake -T | grep'
 alias squash='git add . && git commit -m "." && git rebase -i HEAD~3 && git rebase master && gpo -f'
-alias prune='git checkout master && git pull origin master && git branch -r --merged | tail -n +2 | grep -v master | grep -v develop | sed \'s/  origin\///\' | xargs -n 1 git push origin --delete'
+alias prune="git checkout master && git pull origin master && git branch -r --merged | tail -n +2 | grep -v master | grep -v develop | sed 's/  origin\///' | xargs -n 1 git push origin --delete"
 
 function rbm {
   gcom && gpom && gco $1 && git rebase master

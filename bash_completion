@@ -18,7 +18,7 @@ if [ -f ~/config/.git-completion.bash ]; then
   # Add git completion to aliases
   __git_complete g __git_main
   __git_complete gco _git_checkout
-  __git_complete gm __git_merge
   __git_complete gpo _git_branch
   __git_complete gb _git_branch
+  __git_complete gap _git_add
 fi

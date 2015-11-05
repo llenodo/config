@@ -12,3 +12,13 @@ if [ $bmajor -gt 4 ] || [ $bmajor -eq 4 -a $bminor -ge 1 ]; then
     fi
 fi
 unset bash bmajor bminor
+
+# Git branch bash completion
+if [ -f ~/config/.git-completion.bash ]; then
+  # Add git completion to aliases
+  __git_complete g __git_main
+  __git_complete gco _git_checkout
+  __git_complete gpo _git_branch
+  __git_complete gb _git_branch
+  __git_complete gap _git_add
+fi

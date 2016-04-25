@@ -31,5 +31,5 @@ function clrb {
 }
 
 function c {
-  cd ~/Sites/$1
+  cd ~/workspace/$1
 }

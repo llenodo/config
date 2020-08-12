@@ -21,15 +21,32 @@ alias pushall='git add . && git add -u && git commit && gpo'
 alias rakes='rake -T | grep'
 alias squash='git add . && git commit -m "." && git rebase -i HEAD~3 && git rebase master && gpo -f'
 alias prune="git checkout master && git pull origin master && git branch -r --merged | tail -n +2 | grep -v master | grep -v develop | sed 's/  origin\///' | xargs -n 1 git push origin --delete"
+alias mcompile='mvn -Dmaven.test.skip=true -Dcheckstyle.skip -Dpmd.skip=true -Djacoco.skip install'
 
 function rbm {
   gcom && gpom && gco $1 && git rebase master
 }
 
 function clrb {
-  gcom && gpom && git fetch -p && git branch -D $1 && glg
+  gcom && gpom && git fetch -p && git branch -D $1 && git push pi master && glg
 }
 
 function c {
   cd ~/workspace/$1
+}
+
+function ginit {
+  cd $1 && git remote add pi pi@10.0.0.125:/home/pi/usbdrv/$1.git && git push pi master && cd ..
+}
+
+function release {
+  cd ~/Documents/Exchange\ Deployments/ && mkdir $1 && cd $1 && cp ~/Sites/exchange/target/exchange-uber.jar . && nano release-notes.txt && echo "cpms to copy migration scripts; rtar to create tar file"
+}
+
+function cpms {
+  cp ~/Sites/exchange/db/migration-scripts/pr$1-rollout.sql . && cp ~/Sites/exchange/db/migration-scripts/pr$1-rollback.sql .
+}
+
+function rtar {
+  cd ~/Documents/Exchange\ Deployments/ && tar -czvf $1.tgz $1/ && mv $1.tgz $1/
 }

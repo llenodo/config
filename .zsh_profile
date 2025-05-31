@@ -1,0 +1,17 @@
+. ~/config/color.sh
+. ~/config/.aliases
+
+# sets up zsh's tab completion system:
+# autoload = lazy-load a function when first called
+#   -U = don't expand aliases when loading
+#   -z = use zsh-style loading
+#   compinit = the completion initialization function
+# compinit:
+#   Actually runs the function
+#   Scans /usr/share/zsh/functions/Completion/ for completion definitions
+#   Sets up tab completion for hundreds of commands (git, docker, npm, etc.)
+#   Enables the completion system globally
+# Result:
+#   Type git ch<TAB> → completes to checkout
+#   Type git checkout <TAB> → shows available branches
+autoload -Uz compinit && compinit
